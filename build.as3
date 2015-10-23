@@ -1,0 +1,11 @@
+import redbean.*;
+import shell.FileSystem;
+
+compile( "src/as3hash.as", null, [ "lib-abc/clilib.abc", "lib-abc/ansilib.abc", "lib-abc/hashlib.abc" ] );
+
+if( FileSystem.exists( "as3hash.abc" ) )
+{
+	FileSystem.removeFile( "as3hash.abc" );
+}
+
+FileSystem.move( "src/as3hash.abc", "as3hash.abc" );
