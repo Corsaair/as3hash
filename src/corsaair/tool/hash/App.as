@@ -23,8 +23,8 @@ package corsaair.tool.hash
     
     import shell.FileSystem;
 
-	public class App
-	{
+    public class App
+    {
         
         private var _parser:ArgParser;
         private var _results:ArgResults;
@@ -32,11 +32,11 @@ package corsaair.tool.hash
         public var executableName:String;
         public var description:String;
         
-		public function App()
-		{
-			super();
+        public function App()
+        {
+            super();
             _ctor();
-		}
+        }
         
         private function _ctor():void
         {
@@ -286,6 +286,6 @@ package corsaair.tool.hash
             exit( EXIT_SUCCESS );
         }
         
-	}
+    }
 
 }
