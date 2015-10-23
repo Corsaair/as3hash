@@ -1,0 +1,27 @@
+import redbean.*;
+import shell.FileSystem;
+import flash.utils.ByteArray;
+
+compile( "src/as3hash.as", null, [ "lib-abc/clilib.abc", "lib-abc/ansilib.abc", "lib-abc/hashlib.abc" ] );
+
+if( FileSystem.exists( "as3hash.abc" ) )
+{
+	FileSystem.removeFile( "as3hash.abc" );
+}
+
+FileSystem.move( "src/as3hash.abc", "as3hash.abc" );
+
+var bytes = makeswf( false, [ "lib-abc/clilib.abc", "lib-abc/ansilib.abc", "lib-abc/hashlib.abc", "as3hash.abc" ] );
+
+if( FileSystem.exists( "as3hash.swf" ) )
+{
+	FileSystem.removeFile( "as3hash.swf" );
+}
+
+bytes.position = 0;
+var wrote:Boolean = FileSystem.writeByteArray( "as3hash.swf", bytes as ByteArray );
+if( wrote )
+{
+	trace( "as3hash.swf, " + bytes.length + " bytes written" );
+}
+
